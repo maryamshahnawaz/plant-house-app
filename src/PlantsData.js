@@ -44,7 +44,7 @@ const PlantsData = () => {
     });
     setCart(newCart);
     console.log(cart);
-
+    updateDatebase(cartItem)
   }
 
 
@@ -73,7 +73,7 @@ const PlantsData = () => {
       <section className="plantStore wrapper">
         {plantsArray.map((plant) => {
           return (
-            <Plant addToCart={() => addToCart(plant)} plant={plant} updateDatebase={() => updateDatebase(plant)} />
+            <Plant addToCart={() => addToCart(plant)} plant={plant} />
           )
         })}
       </section>
