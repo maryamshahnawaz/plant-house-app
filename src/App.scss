@@ -28,9 +28,12 @@ $mainColor:'BadAss';
   justify-content: flex-end;
   padding:1rem;
 }
+.navBar button {
+  display:block;
+}
 
 img {
-  min-width:300px;
+  
   width:100%;
   height:100%;
   height:400px;
@@ -53,6 +56,7 @@ img {
   padding:1rem;
   border: none;
 }
+
 .heading {
   padding:10rem;
   background-color: #00672A;
@@ -63,13 +67,56 @@ img {
   align-items: center;
 } 
 
-// .imageBox {
-//   position: relative;
-// }
+
 li {
   list-style: none;
+  position: absolute;
+  top:1%;
+  right:3%;
+  background: yellow;
+  border-radius: 50%;
+  padding: 0.40rem;
+  color:green;
+  z-index: 200;
 }
+
 .icon {
   color:grey;
   font-size:30px;
+}
+
+.iconBtn {
+  border:none;
+  background: transparent;
+  position: relative;
+}      
+
+.cartDesign{
+  z-index: 100;
+  max-width: 300px;
+  width:100%;
+  background-color: aliceblue;
+  position: absolute;
+  top:9%;
+  right:0;
+}
+
+.items {
+  max-width:200px;
+  width:100%;
+  margin-bottom: 0.50rem;
+  padding:1.5rem;
+  display:flex;
+  justify-content: space-between;
+}
+.items img {
+  width:100px;
+  height:100px;
+}
+
+.checkOut {
+  background-color:grey;
+  color:white;
+  padding:0.50rem;
+  border:none;
 }

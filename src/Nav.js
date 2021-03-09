@@ -1,23 +1,20 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+// import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
-import Items from 'react';
+import CartItems from "./CartItems";
 const Nav = ({ cart, setCart }) => {
-  console.log(cart);
 
   const [showCart, setShowCart] = useState(false);
   return (
     <>
       <nav className="navBar">
-        <button onClick={() => setShowCart(!showCart)}></button>
-        {
-          showCart ? <Items cart={cart} /> : null
-        }
-        <ul className="wrapper">
-          <FontAwesomeIcon icon={faCartPlus} className="icon" />
-          <li>({cart.length})</li>
-        </ul>
+        <button onClick={() => setShowCart(!showCart)} className="iconBtn"><FontAwesomeIcon icon={faShoppingCart} className="icon" /></button>
+        <li>({cart.length})</li>
       </nav>
+      {
+        showCart ? <CartItems cart={cart} /> : null
+      }
     </>
   )
 }

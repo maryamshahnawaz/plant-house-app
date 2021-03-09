@@ -1,6 +1,6 @@
 import firebase from './firebase.js';
 //import the useEffect and useState Hook from the React library
-import Plants from './Plants';
+import Plant from './Plant';
 import Header from './Header';
 import { useState, useEffect } from 'react';
 import Nav from './Nav';
@@ -36,13 +36,17 @@ const PlantsData = () => {
     console.log(cartItem);
     const newCart = [...cart];
     newCart.push({
-      title:cartItem.title,
-      image:cartItem.img,
-      price:cartItem.price,
+      title: cartItem.title,
+      image: cartItem.img,
+      price: cartItem.price,
+      inventory: cartItem.inventory
     });
     setCart(newCart);
     console.log(cart)
-    // const dbRef = firebase.database().ref('cart').child('itemAdded');
+    // const updateDatebase = (cart) => {
+    //   const dbRef = firebase.database().ref('cart').child('newCart');
+    //   dbRef.update(newCart)
+    //   console.log(newCart)
     // dbRef.update({
     //   "plant": {
     //     "title": "i m plant",
@@ -51,24 +55,18 @@ const PlantsData = () => {
 
     // })
     // setCart([...cart, cartItem])
-  }
-
-  const updateInventory = (inventoryToBeAddedToCart) => {
-    const copyOfCartArray = [...cart,inventoryToBeAddedToCart];
-    const decreasedInventory = copyOfCartArray.filter((plant,index)=>{
-return index !==  inventoryToBeAddedToCart
-    })
-    console.log(decreasedInventory);
+    // }
 
   }
+
   return (
     <>
       <Nav cart={cart} />
       <Header><h1 className="heading">Plant House</h1></Header>
       <section className="plantStore wrapper">
-        {plantsArray.map((plant,index) => {
+        {plantsArray.map((plant) => {
           return (
-            <Plants addToCart={()=> addToCart(plant)} plant={plant} updateInventory={updateInventory}/>
+            <Plant addToCart={() => addToCart(plant)} plant={plant} />
           )
         })}
       </section>
