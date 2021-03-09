@@ -5,7 +5,6 @@ function App() {
   return (
     <>
       <PlantsData />
-      <p>Testing</p>
     </>
   )
 }
