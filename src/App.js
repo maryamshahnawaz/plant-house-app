@@ -3,7 +3,10 @@ import PlantsData from './PlantsData';
 
 function App() {
   return (
-    <PlantsData />
+    <>
+      <PlantsData />
+      <p>Testing</p>
+    </>
   )
 }
 
