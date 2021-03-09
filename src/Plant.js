@@ -3,7 +3,7 @@ const Plant = ({ addToCart, plant, cart, updateDatebase }) => {
   const { id, img, title, price, inventory } = plant;
 
   return (
-    <div className="plant">
+    <div className="plant wrapper">
       <div key={id} className="imageBox">
         <img src={img} alt={title} />
       </div>

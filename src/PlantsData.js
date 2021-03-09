@@ -69,7 +69,7 @@ const PlantsData = () => {
   return (
     <>
       <Nav cart={cart} />
-      <Header><h1 className="heading"><span>P</span>lant <span>H</span>ouse</h1></Header>
+      <Header><h1 className="heading">Plant House</h1></Header>
       <section className="plantStore wrapper">
         {plantsArray.map((plant) => {
           return (
