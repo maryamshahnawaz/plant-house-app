@@ -5,6 +5,7 @@ import Header from './Header';
 import { useState, useEffect } from 'react';
 import Nav from './Nav';
 
+
 const PlantsData = () => {
   const [plantsArray, setPlantsArray] = useState([]);
   const [cart, setCart] = useState([]);
@@ -42,31 +43,37 @@ const PlantsData = () => {
       inventory: cartItem.inventory
     });
     setCart(newCart);
-    console.log(cart)
-    // const updateDatebase = (cart) => {
-    //   const dbRef = firebase.database().ref('cart').child('newCart');
-    //   dbRef.update(newCart)
-    //   console.log(newCart)
-    // dbRef.update({
-    //   "plant": {
-    //     "title": "i m plant",
-    //     "img": "https:www.logo.com"
-    //   }
-
-    // })
-    // setCart([...cart, cartItem])
-    // }
+    console.log(cart);
 
   }
+
+
+  const updateDatebase = (cart) => {
+    const dbRef = firebase.database().ref('cart')
+    dbRef.push(cart.title);
+  }
+  // dbRef.update(newCart)
+  // console.log(newCart)
+  // dbRef.update({
+  // "plant": {
+  //     "title": "i m plant",
+  //     "img": "https:www.logo.com"
+  //   }
+
+  // })
+  // setCart([...cart, cartItem])
+  // }
+
+
 
   return (
     <>
       <Nav cart={cart} />
-      <Header><h1 className="heading">Plant House</h1></Header>
+      <Header><h1 className="heading"><span>P</span>lant <span>H</span>ouse</h1></Header>
       <section className="plantStore wrapper">
         {plantsArray.map((plant) => {
           return (
-            <Plant addToCart={() => addToCart(plant)} plant={plant} />
+            <Plant addToCart={() => addToCart(plant)} plant={plant} updateDatebase={() => updateDatebase(plant)} />
           )
         })}
       </section>

@@ -17,11 +17,10 @@ const CartItems = ({ cart }) => {
                   <p>{inventory}</p>
                 </div>
               </div>
-              <button className="checkOut">CheckOut</button>
             </>
           )
         })}
-
+      <button className="checkOut">CheckOut</button>
     </section >
   )
 }
