@@ -71,9 +71,9 @@ const PlantsData = () => {
       <Nav cart={cart} />
       <Header><h1 className="heading">Plant House</h1></Header>
       <section className="plantStore wrapper">
-        {plantsArray.map((plant) => {
+        {plantsArray.map((plant, index) => {
           return (
-            <Plant addToCart={() => addToCart(plant)} plant={plant} />
+            <Plant addToCart={() => addToCart(plant)} plant={plant} key={index} />
           )
         })}
       </section>

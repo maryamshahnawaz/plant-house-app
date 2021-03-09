@@ -1,6 +1,5 @@
-import { useState } from 'react';
 const Plant = ({ addToCart, plant, cart }) => {
-  const { id, img, title, price, inventory } = plant;
+  const { id, img, title, price } = plant;
 
   return (
     <div className="plant wrapper">
