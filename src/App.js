@@ -6,6 +6,7 @@ function App() {
     <>
       <PlantsData />
       <p>Testing</p>
+      <p>Testing</p>
     </>
   )
 }
