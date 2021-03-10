@@ -4,7 +4,7 @@ const CartItems = ({ cart }) => {
       {
         cart.map((item) => {
           console.log(item);
-          const { title, image, price, id, inventory } = item;
+          const { title, image, price, id } = item;
           return (
             <>
               <div key={id} className="items">
@@ -14,13 +14,12 @@ const CartItems = ({ cart }) => {
                 <div className="cartInfo">
                   <h4>{title}</h4>
                   <p>Price: {price}</p>
-                  <p>{inventory}</p>
                 </div>
               </div>
             </>
           )
         })}
-      <button className="checkOut">CheckOut</button>
+      <button className="checkOut">Total Amount: ${ }</button>
     </section >
   )
 }
