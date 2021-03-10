@@ -4,7 +4,7 @@ const CartItems = ({ cart }) => {
       {
         cart.map((item) => {
           console.log(item);
-          const { title, image, price, id, inventory } = item;
+          const { title, image, price, id } = item;
           return (
             <>
               <div key={id} className="items">
