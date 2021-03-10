@@ -14,13 +14,12 @@ const CartItems = ({ cart }) => {
                 <div className="cartInfo">
                   <h4>{title}</h4>
                   <p>Price: {price}</p>
-                  <p>{inventory}</p>
                 </div>
               </div>
             </>
           )
         })}
-      <button className="checkOut">CheckOut</button>
+      <button className="checkOut">Total Amount: ${ }</button>
     </section >
   )
 }
