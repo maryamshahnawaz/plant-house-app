@@ -1,0 +1,9 @@
+//Pseudo Code 
+Create a plant house app
+//Create a json data file
+//upload json data file into firebase database
+//Now Connect React with firebase 
+//start working with React to get the firebase data and render it to the page
+Plant data will display {image, title, price, quantity} of plant
+Once user click on any image they can add the item to the cart 
+Cart will be updated with use of useState()
