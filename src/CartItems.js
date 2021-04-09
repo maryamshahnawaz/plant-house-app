@@ -1,10 +1,36 @@
-import React, { Fragment } from 'react'
-const CartItems = ({ cart, index }) => {
+import React, { Fragment } from 'react';
+import firebase from './firebase.js';
+import { useState } from 'react';
+const CartItems = ({ cart, index, plantsArray, setCart }) => {
+  // const [total, setTotal] = useState(0);
+
+  // const average = cart.reduce((total, amount, index, array) => {
+  //   total += amount;
+  //   if (index === array.length - 1) {
+  //     return total / array.length;
+  //   } else {
+  //     return total;
+  //   }
+  // });
+  // console.log(average)
+
+  const removeFromCart = (uniqueKey) => {
+    const removeCart = [...cart];
+    console.log("remove cart", removeCart);
+    const updatedCart = removeCart.filter(item => {
+      console.log("Cart Item uniqueKey", uniqueKey);
+      console.log("Item uniqueKey", item.uniqueKey);
+      return uniqueKey !== item.uniqueKey
+    });
+
+    setCart(updatedCart);
+  }
+
   return (
     <section className="cartDesign" >
       {
         cart.map((item, index) => {
-          const { title, image, price, id } = item;
+          const { title, image, price, id, uniqueKey } = item;
 
           return (
             <Fragment key={index}>
@@ -15,14 +41,16 @@ const CartItems = ({ cart, index }) => {
                 <div className="cartInfo">
                   <div className="cartItemPrice">
                     <p>{title}</p>
-                    <p className="price">Price: {price}</p>
+                    <p className="price">Price: ${price}</p>
                   </div>
-                  <button className="removeBtn">remove</button>
+                  <button className="removeBtn" onClick={() => removeFromCart(uniqueKey)}>remove</button>
+                  <span>Qty:</span>
                 </div>
               </div>
             </Fragment>
           )
         })}
+      {/* <p>Total:${cartTotal}</p> */}
     </section >
   )
 }

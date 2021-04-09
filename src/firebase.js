@@ -4,12 +4,12 @@ import 'firebase/database';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDKrdkA5D9wdqZw3AUOXGz1jkp904AxcLU",
-  authDomain: "plant-house-app-1a9b1.firebaseapp.com",
-  projectId: "plant-house-app-1a9b1",
-  storageBucket: "plant-house-app-1a9b1.appspot.com",
-  messagingSenderId: "875900809238",
-  appId: "1:875900809238:web:4b14cde67b8da169574537"
+  apiKey: "AIzaSyBIxK81IeFG-PH7DxYCny4PnPJ6iIbh4BM",
+  authDomain: "plants-fa031.firebaseapp.com",
+  projectId: "plants-fa031",
+  storageBucket: "plants-fa031.appspot.com",
+  messagingSenderId: "199840136763",
+  appId: "1:199840136763:web:9352c00d3e74bdc4ff261e"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
