@@ -12,7 +12,10 @@ function App() {
   const [plantsArray, setPlantsArray] = useState([]);
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
+  const [showInventory, setShowInventory] = useState([]);
+  const [dataBase, setDataBase] = useState([]);
 
+  //Items added to the firebase
   useEffect(() => {
     const dbRef = firebase.database().ref();
     dbRef.on('value', (data) => {
@@ -26,57 +29,73 @@ function App() {
           price: plantFile[plant].price,
           inventory: plantFile[plant].inventory,
           id: plantFile[plant].id,
+          uniqueKey: plant
         });
       };
       setPlantsArray(plantBag);
     });
   }, []);
-
+  //Items added to the cart
   const addToCart = (cartItem) => {
     const newCart = [...cart];
     newCart.push({
       title: cartItem.title,
       image: cartItem.img,
       price: cartItem.price,
-      inventory: cartItem.inventory
-      //unique property for each item 
+      inventory: cartItem.inventory,
+      uniqueKey: cartItem.uniqueKey
     });
     setCart(newCart);
-    //updateDatebase(cartItem)
+    setDataBase(cartItem);
+    // updateDatebase(cartItem)
+    updataInFirebase();
   };
 
-  //THIS FUNCTION IS FOR UPDATE DATABASE WITH CHOSEN ITEMS I WILL WORK LATER ON A STRECHICAL GOALS
-  // const updateDatebase = (cart) => {
-  //   const dbRef = firebase.database().ref('cart')
-  //   dbRef.push(cart.title);
-  // }
+  const updataInFirebase = () => {
+    const dbRef = firebase.database().ref();
+    dbRef.push(dataBase);
+  }
 
-  // const removeFromCart = (cartItem) => {
-  //   console.log(cartItem);
-  //   const removeCart = [...cart];
-  // const update = removeCart.filter((item)=>{
-  // )
+  //Check duplicates
+  const plantArrayInventory = [...plantsArray]
+  const checkDuplicate = function () {
+    let hasDuplicate = false;
+    plantsArray.forEach((item) => {
+      const savedName = item.uniqueKey
+      if (savedName) {
+        hasDuplicate = true;
+      }
+    });
+    return hasDuplicate;
+  };
+
+
+  // const handleClick = (plantUniqueId) => {
+  //   //create a reference to our database
+  //   const dbRef = firebase.database().ref();
+  //   //remove the book from our database
+  //   //utilize Firebase-specific methods: .child() & .remove()
+  //   dbRef.child(plantUniqueId).remove();
   // }
+  // const removeFromDatabase = (plantUniqueId) => {
+  //   const dbRef = firebase.database().ref('cart');
+  //   // dbRef.child(plantUniqueId).remove();
+  // }
+  // removeFromDatabase()
+  //   const removeFromCart = (cartItem) => {
+  //     console.log(cartItem);
+  //     const removeCart = [...cart];
+  //     const update = removeCart.filter((item) => {
+  //   )
+  //   }
   //   removeFromCart = {() => removeFromCart(cart)
   // }
   // const removeDatebase = (cart) => {
   //   const dbRef = firebase.database().ref('cart')
   //   dbRef.remove(cart);
 
-  //Strechical Goals
-  //const [total, setTotal] = useState(0);
-  // console.log(total);
-  // const cartTotal = () => {
-  //   const copyOfCart = [...cart];
-  //   console.log(copyOfCart);
-  //   copyOfCart.map((cart, index) => {
-  //     const cartData = cart.price + 1;
-  //     const parseData = parseInt(cartData);
-  //     console.log(parseData);
-  //   })
-  // }
-  // cartTotal();
-  // }
+
+
 
   return (
     <>
@@ -88,7 +107,7 @@ function App() {
             <Fragment key={index}>
               <Plant plantStore={plantStore} key={index} addToCart={() => addToCart(plantStore)} />
               {
-                showCart ? <CartItems plantStore={plantStore} cart={cart} /> : null
+                showCart ? <CartItems plantsArray={plantsArray} plantStore={plantStore} cart={cart} setCart={setCart} /> : null
               }
             </Fragment>
           )

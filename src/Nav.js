@@ -5,7 +5,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 const Nav = ({ cart, showCart, setShowCart, }) => {
   return (
     <nav className="navBar">
-      <button onClick={() => setShowCart(!showCart)} className="iconBtn"><FontAwesomeIcon icon={faShoppingCart} className="icon" /></button>
+      <button onClick={() => setShowCart(!showCart)} className="iconBtn"><FontAwesomeIcon icon={faShoppingCart} className="icon" aria-label="shopping cart" /></button>
       <li>({cart.length})</li>
     </nav>
   )
