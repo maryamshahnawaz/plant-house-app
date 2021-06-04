@@ -6,6 +6,8 @@ import Plant from './Plant';
 import CartItems from './CartItems';
 import Header from './Header';
 import Footer from './Footer';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
 
 
 function App() {
@@ -70,37 +72,18 @@ function App() {
   };
 
 
-  // const handleClick = (plantUniqueId) => {
-  //   //create a reference to our database
-  //   const dbRef = firebase.database().ref();
-  //   //remove the book from our database
-  //   //utilize Firebase-specific methods: .child() & .remove()
-  //   dbRef.child(plantUniqueId).remove();
-  // }
-  // const removeFromDatabase = (plantUniqueId) => {
-  //   const dbRef = firebase.database().ref('cart');
-  //   // dbRef.child(plantUniqueId).remove();
-  // }
-  // removeFromDatabase()
-  //   const removeFromCart = (cartItem) => {
-  //     console.log(cartItem);
-  //     const removeCart = [...cart];
-  //     const update = removeCart.filter((item) => {
-  //   )
-  //   }
-  //   removeFromCart = {() => removeFromCart(cart)
-  // }
-  // const removeDatebase = (cart) => {
-  //   const dbRef = firebase.database().ref('cart')
-  //   dbRef.remove(cart);
+
 
 
 
 
   return (
     <>
-      <Nav cart={cart} showCart={showCart} setShowCart={setShowCart} />
-      <Header><h1 className="heading">Plant House</h1></Header>
+      <div>
+        <Nav cart={cart} showCart={showCart} setShowCart={setShowCart} />
+      </div>
+
+      <Header><h1 className="heading">Plant Store</h1></Header>
       <section className="plantStore wrapper">
         {plantsArray.map((plantStore, index) => {
           return (
@@ -111,7 +94,8 @@ function App() {
               }
             </Fragment>
           )
-        })};
+        })
+        }
       </section>
       <Footer />
     </>

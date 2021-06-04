@@ -8,7 +8,7 @@ const Plant = ({ cart, plantStore, addToCart }) => {
           <img src={img} alt={title} />
         </div>
         <h3 className="title">{title}</h3>
-        <p className="price">Price : {price}</p>
+        <p className="price">Price : ${price}</p>
         <p className="inventory">Inventory : {inventory}</p>
         <button className="plantBtn" onClick={() => { addToCart(cart, id) }}>Add to Cart</button>
       </div>
