@@ -1,18 +1,5 @@
 import React, { Fragment } from 'react';
-import firebase from './firebase.js';
-import { useState } from 'react';
 const CartItems = ({ cart, index, plantsArray, setCart }) => {
-  // const [total, setTotal] = useState(0);
-
-  // const average = cart.reduce((total, amount, index, array) => {
-  //   total += amount;
-  //   if (index === array.length - 1) {
-  //     return total / array.length;
-  //   } else {
-  //     return total;
-  //   }
-  // });
-  // console.log(average)
 
   const removeFromCart = (uniqueKey) => {
     const removeCart = [...cart];

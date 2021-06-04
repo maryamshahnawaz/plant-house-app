@@ -6,7 +6,6 @@ import Plant from './Plant';
 import CartItems from './CartItems';
 import Header from './Header';
 import Footer from './Footer';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -14,7 +13,6 @@ function App() {
   const [plantsArray, setPlantsArray] = useState([]);
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
-  const [showInventory, setShowInventory] = useState([]);
   const [dataBase, setDataBase] = useState([]);
 
   //Items added to the firebase
@@ -57,25 +55,6 @@ function App() {
     const dbRef = firebase.database().ref();
     dbRef.push(dataBase);
   }
-
-  //Check duplicates
-  const plantArrayInventory = [...plantsArray]
-  const checkDuplicate = function () {
-    let hasDuplicate = false;
-    plantsArray.forEach((item) => {
-      const savedName = item.uniqueKey
-      if (savedName) {
-        hasDuplicate = true;
-      }
-    });
-    return hasDuplicate;
-  };
-
-
-
-
-
-
 
   return (
     <>
